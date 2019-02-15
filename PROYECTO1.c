@@ -14,14 +14,14 @@ void main(void) {
 	GPIO_PORTE_DEN_R |=0x0E; //SEÑAL DIGITAL?
 	
 	while(1){ //FOREVER RUN A TASK
-		//RESET GREEN
-		//SET RED	
+		GPIO_PORTE_DEN_R &=~0x08;//RESET GREEN
+		GPIO_PORTE_DEN_R |=0x02;//SET RED	
 		for(n = 0; n < 800000; n++);//WAIT
-		//RESET RED
-		//SET YELLOW
+		GPIO_PORTE_DEN_R &=~0x02;//RESET RED
+		GPIO_PORTE_DEN_R |=0x04;//SET YELLOW
 		for(n = 0; n < 800000; n++);//WAIT
-		//RESET YELLOW
-		//SET GREEN
+		GPIO_PORTE_DEN_R &=~0x04;//RESET YELLOW
+		GPIO_PORTE_DEN_R |=0x08;//SET GREEN
 		for(n = 0; n < 800000; n++);//WAIT
 		} 
 	} 
